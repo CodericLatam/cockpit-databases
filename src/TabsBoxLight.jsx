@@ -33,17 +33,26 @@ export const TabsBoxLight = (props) => {
         aria-label="Tabs in the box light variation example"
         role="region"
       >
-        <Tab
-          eventKey={0}
-          title={<TabTitleText>MariaDB</TabTitleText>}
-          isDisabled={!isEnabled.httpd}
-        >
-        <CodeBlock>
-          <CodeBlockCode id="code-content">{isEnabled.httpd}</CodeBlockCode>
-        </CodeBlock>
+      <Tab
+        eventKey={0}
+        title={<TabTitleText>MariaDB</TabTitleText>}
+        isDisabled={!isEnabled.httpd}
+      >
+      <CodeBlock>
+        <CodeBlockCode id="code-content">{isEnabled.httpd}</CodeBlockCode>
+      </CodeBlock>
+        </Tab>
+      <Tab
+        eventKey={1}
+        title={<TabTitleText>MySQL</TabTitleText>}
+        isDisabled={!isEnabled.httpd}
+      >
+      <CodeBlock>
+        <CodeBlockCode id="code-content">{isEnabled.httpd}</CodeBlockCode>
+      </CodeBlock>
         </Tab>
         <Tab
-          eventKey={1}
+          eventKey={2}
           title={<TabTitleText>PostgreSQL</TabTitleText>}
           isDisabled={!isEnabled.tomcat}
         >
@@ -52,8 +61,8 @@ export const TabsBoxLight = (props) => {
           </CodeBlock>
         </Tab>
         <Tab
-          eventKey={2}
-          title={<TabTitleText>Virus Scanning</TabTitleText>}
+          eventKey={3}
+          title={<TabTitleText>SQLite</TabTitleText>}
           isDisabled={!isEnabled.nginx}
         >
         <CodeBlock>
@@ -61,7 +70,17 @@ export const TabsBoxLight = (props) => {
         </CodeBlock>
         </Tab>
         <Tab
-          eventKey={3}
+          eventKey={4}
+          title={<TabTitleText>MongoDB</TabTitleText>}
+          isDisabled={!isEnabled.nginx}
+        >
+        <CodeBlock>
+          <CodeBlockCode id="code-content">{isEnabled.nginx}</CodeBlockCode>
+        </CodeBlock>
+        </Tab>
+        
+        <Tab
+          eventKey={5}
           title={<TabTitleText>phpMyAdmin</TabTitleText>}
           isDisabled={!isEnabled.phpmyadmin}
         >

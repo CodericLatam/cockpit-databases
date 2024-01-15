@@ -17,54 +17,58 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-import cockpit from 'cockpit';
-import React from 'react';
+import cockpit from "cockpit";
+import React from "react";
 import { Alert } from "@patternfly/react-core/dist/esm/components/Alert/index.js";
-import { Card, CardBody, CardTitle } from "@patternfly/react-core/dist/esm/components/Card/index.js";
-import { TabsBoxLight } from './TabsBoxLight';
+import {
+  Card,
+  CardBody,
+  CardTitle,
+} from "@patternfly/react-core/dist/esm/components/Card/index.js";
+import { TabsBoxLight } from "./TabsBoxLight";
 
 const _ = cockpit.gettext;
 
 export class Application extends React.Component {
-    constructor() {
-        super();
-        this.state = { 
-            httpd: false,
-            tomcat: false,
-            nginx: false,
-            phpmyadmin: false,
-         };
+  constructor() {
+    super();
+    this.state = {
+      httpd: false,
+      tomcat: false,
+      nginx: false,
+      phpmyadmin: false,
+    };
 
-         cockpit.file('/etc/httpd/conf/httpd.conf').watch(content => {
-            if(content) {
-                this.setState({ httpd: content.trim() });
-            }
-        });
-        cockpit.file('/etc/tomcat/tomcat.conf').watch(content => {
-            if(content) {
-                this.setState({ tomcat: content.trim() });
-            }
-        });
-        cockpit.file('/etc/nginx/nginx.conf').watch(content => {
-            if(content) {
-                this.setState({ nginx: content.trim() });
-            }
-        });
-        cockpit.file('/etc/phpMyAdmin/config.inc.php').watch(content => {
-            if(content) {
-                this.setState({ phpmyadmin: content.trim() });
-            }
-        });
-    }
+    cockpit.file("/etc/httpd/conf/httpd.conf").watch((content) => {
+      if (content) {
+        this.setState({ httpd: content.trim() });
+      }
+    });
+    cockpit.file("/etc/tomcat/tomcat.conf").watch((content) => {
+      if (content) {
+        this.setState({ tomcat: content.trim() });
+      }
+    });
+    cockpit.file("/etc/nginx/nginx.conf").watch((content) => {
+      if (content) {
+        this.setState({ nginx: content.trim() });
+      }
+    });
+    cockpit.file("/etc/phpMyAdmin/config.inc.php").watch((content) => {
+      if (content) {
+        this.setState({ phpmyadmin: content.trim() });
+      }
+    });
+  }
 
-    render() {
-        return (
-            <Card>
-                <CardTitle>Databases</CardTitle>
-                <CardBody>
-                    <TabsBoxLight isEnabled={this.state} />
-                </CardBody>
-            </Card>
-        );
-    }
+  render() {
+    return (
+      <Card>
+        <CardTitle>Databases</CardTitle>
+        <CardBody>
+          <TabsBoxLight isEnabled={this.state} />
+        </CardBody>
+      </Card>
+    );
+  }
 }
